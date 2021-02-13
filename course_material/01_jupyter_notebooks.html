@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jupyter Notebook 101 &#8212; Python Demo Course</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Expressions" href="02_expressions.html" />
+    <link rel="prev" title="Getting Started" href="00_getting_started.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo_com.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Demo Course</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_getting_started.html">
+   Getting Started
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Jupyter Notebook 101
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_expressions.html">
+   Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_flow_control.html">
+   Flow Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_loops.html">
+   Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_functions.html">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_lists.html">
+   List
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_dictionaries.html">
+   Other data structures
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-jupyter-notebook">
+   What is a Jupyter Notebook?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing">
+   Writing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modes">
+   Modes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-important-considerations">
+   Other Important Considerations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#markdown-formatting">
+   Markdown Formatting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-capabilities">
+   Code Capabilities
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="jupyter-notebook-101">
+<h1>Jupyter Notebook 101<a class="headerlink" href="#jupyter-notebook-101" title="Permalink to this headline">¶</a></h1>
+<p>There are many IDEs(Integrated Development Environment) - a tool used to develop code. It has all the functions a code editor has, while also including extra tools and functionalities that are specialized at making large scale, professional software development easier.</p>
+<p>We will be using <strong>Jupyter Notebook</strong> as our IDE of choice.</p>
+<div class="section" id="what-is-a-jupyter-notebook">
+<h2>What is a Jupyter Notebook?<a class="headerlink" href="#what-is-a-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
+<p>A Jupyter Notebook is a document made of cells. You can write text in some of them (markdown cells) or you can execute Python code (code cells). You can run cells by pressing <kbd>Shift</kbd> + <kbd>Enter</kbd>.</p>
+<p>Try typing <code class="docutils literal notranslate"><span class="pre">1+1</span></code> in the cell and then run it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cool, huh? This combination of text and code makes Jupyter Notebook ideal for experimentation: we can see the reasoning for each experiment, the code, and the results in one comprehensive document.</p>
+<p>Many renowned institutions in academia and industry use Jupyter Notebook, including Google, Microsoft, IBM, Bloomberg, Berkeley and NASA among others. Even Nobel-winning economists <a class="reference external" href="https://paulromer.net/jupyter-mathematica-and-the-future-of-the-research-paper/">use Jupyter Notebooks</a>  for their experiments and some suggest that Jupyter Notebooks will be the <a class="reference external" href="https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/">new format for research papers</a>.</p>
+</div>
+<div class="section" id="writing">
+<h2>Writing<a class="headerlink" href="#writing" title="Permalink to this headline">¶</a></h2>
+<p>A type of cell in which you can write text is called a <em>Markdown cell</em>. <a class="reference external" href="https://en.wikipedia.org/wiki/Markdown"><em>Markdown</em></a> is a very popular markup language. To specify that a cell is Markdown you need to click in the drop-down menu in the toolbar and select Markdown.</p>
+<p>Click on the the ‘+’ button on the left and select Markdown from the toolbar. Now you can type your first Markdown cell. Write ‘My first markdown cell’ and press run.</p>
+<p><img alt="" src="../_images/add.png" /></p>
+<p>You should see something like this:</p>
+<p>My first markdown cell</p>
+<p>Now try making your first <em>Code</em> cell: follow the same steps as before but don’t change the cell type (when you add a cell its default type is <em>Code</em>). Type something like 3/2. You should see ‘1.5’ as output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modes">
+<h2>Modes<a class="headerlink" href="#modes" title="Permalink to this headline">¶</a></h2>
+<p>If you made a mistake in your <em>Markdown</em> cell and you have already run it, you will notice that you cannot edit it just by clicking on it. This is because you are in <strong>Command Mode</strong>. Jupyter Notebooks have two distinct modes:</p>
+<ul class="simple">
+<li><p><strong>Edit Mode:</strong> Allows you to edit a cell’s content.</p></li>
+<li><p><strong>Command Mode:</strong> Allows you to edit the Jupyter Notebook as a whole and use keyboard shortcuts but not edit a cell’s content.</p></li>
+</ul>
+<p>You can toggle between these two by either pressing <kbd>ESC</kbd> and <kbd>Enter</kbd> or clicking outside a cell or inside it (you need to double click if it’s a Markdown cell). You can always tell which mode you’re on: the current cell will have a green border in <strong>Edit Mode</strong> and a blue border in <strong>Command Mode</strong>. Try it!</p>
+<p>The cell in <strong>Edit Mode</strong> looks like this.</p>
+<p><img alt="" src="../_images/edit_mode.png" /></p>
+<p>And <strong>Command Mode</strong> looks like this.</p>
+<p><img alt="" src="../_images/command_mode.png" /></p>
+</div>
+<div class="section" id="other-important-considerations">
+<h2>Other Important Considerations<a class="headerlink" href="#other-important-considerations" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter Notebook gets autosaved every 120 seconds. If you want to manually save it you can just press the save button on the upper left corner or press <kbd>s</kbd> in <strong>Command Mode</strong>.</p>
+<p><img alt="" src="../_images/save.png" /></p>
+<p>To know if your <em>kernel</em> (the Python engine executing your instructions behind the scenes) is computing or not, you can check the dot in your upper right corner. If the dot is full, it means that the kernel is working. If not, it is idle. You can place the mouse on it and the state of the kernel will be displayed.</p>
+<p><img alt="" src="../_images/busy.png" /></p>
+<p>There are a couple of shortcuts you must know about which we use <strong>all</strong> the time (always in <strong>Command Mode</strong>). You can leverage to make Jupyter Notebook faster to use. Remember that you can switch back and forth between <code class="docutils literal notranslate"><span class="pre">Command</span> <span class="pre">Mode</span></code> and <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">Mode</span></code> with <kbd>Esc</kbd> and <kbd>Enter</kbd>. These are:</p>
+<ul class="simple">
+<li><p><kbd>Shift</kbd>+<kbd>Enter</kbd>: Run the code or markdown cell</p></li>
+<li><p><kbd>Up Arrow</kbd> or <kbd>Down Arrow</kbd>: To move across cells</p></li>
+<li><p><kbd>b</kbd>: Create new cell</p></li>
+<li><p><kbd>m</kbd>: Convert cell to Markdown</p></li>
+<li><p><kbd>y</kbd>: Convert cell to Code</p></li>
+<li><p><kbd>d</kbd>+<kbd>d</kbd>: Delete cell</p></li>
+<li><p><kbd>Shift</kbd>+<kbd>Up Arrow</kbd> or <kbd>Down Arrow</kbd>: Select multiple cells. Once you have selected them you can operate on them like a batch (run, copy, paste etc).</p></li>
+</ul>
+<p>You can find more shortcuts by pressing <kbd>h</kbd> (for help).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Above keyboard shortcuts will not work on Google Colab. Also, the interface might be a bit different.</p>
+</div>
+</div>
+<div class="section" id="markdown-formatting">
+<h2>Markdown Formatting<a class="headerlink" href="#markdown-formatting" title="Permalink to this headline">¶</a></h2>
+<p>You can read more about markdown <a class="reference external" href="https://www.markdownguide.org/getting-started/">here</a>. And for syntax cheat sheet, visit <a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">this</a>.</p>
+</div>
+<div class="section" id="code-capabilities">
+<h2>Code Capabilities<a class="headerlink" href="#code-capabilities" title="Permalink to this headline">¶</a></h2>
+<p><strong>Code</strong> cells are different than <strong>Markdown</strong> cells in that they have an output cell. This means that we can <em>keep</em> the results of our code within our Jupyter Notebook and share them. Let’s say we want to show a graph that explains the result of an experiment. We can just run the necessary cells and save the Jupyter Notebook. The output will be there when we open it again!</p>
+<p>Try writing the below code in your notebook…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import necessary libraries</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="p">,</span><span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 4, 8, 16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01_jupyter_notebooks_14_0.png" src="../_images/01_jupyter_notebooks_14_0.png" />
+</div>
+</div>
+<p>We can also print images while experimenting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;images/beach.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01_jupyter_notebooks_16_0.png" src="../_images/01_jupyter_notebooks_16_0.png" />
+</div>
+</div>
+<p>That’s it. This is all you need to know to use Jupyter Notebooks. That said, we will keep learning many more tricks and shortcuts as we go along. For now, lets get started with python.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./course_material"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="00_getting_started.html" title="previous page">Getting Started</a>
+    <a class='right-next' id="next-link" href="02_expressions.html" title="next page">Expressions</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By aiadventures<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

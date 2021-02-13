@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions &#8212; Python For Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="List" href="06_lists.html" />
+    <link rel="prev" title="Loops" href="04_loops.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo_com.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python For Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_getting_started.html">
+   Getting Started
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_expressions.html">
+   Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_flow_control.html">
+   Flow Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_loops.html">
+   Loops
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_lists.html">
+   List
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_dictionaries.html">
+   Other data structures
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#def-statement-with-parameters">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     def
+    </span>
+   </code>
+   statement with parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#default-argument-values">
+   Default Argument Values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#return-statement">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     return
+    </span>
+   </code>
+   statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#none-value">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     None
+    </span>
+   </code>
+   value
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-tricks">
+   Jupyter Tricks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questionaire">
+     Questionaire
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<p>You’re already familiar with the <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">input()</span></code>, and <code class="docutils literal notranslate"><span class="pre">len()</span></code> functions from the previous chapters. Python provides several built-in functions like these, but you can also write your own functions. A function is like a mini-program within a program.</p>
+<p>To better understand how functions work, let’s create one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello!!!&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello there.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first line is a <code class="docutils literal notranslate"><span class="pre">def</span></code> statement, which defines a function named <code class="docutils literal notranslate"><span class="pre">hello</span></code>. The code in the block that follows the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement  is the <em>body of the function</em>. This code is executed when the function is called, not when the function is first defined.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">()</span>
+<span class="n">hello</span><span class="p">()</span>
+<span class="n">hello</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello!
+Hello!!!
+Hello there.
+Hello!
+Hello!!!
+Hello there.
+Hello!
+Hello!!!
+Hello there.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">hello()</span></code> are function calls. In code, a function call is just the function’s name followed by parentheses, possibly with some number of arguments in between the parentheses. When the program execution reaches these calls, it will jump to the top line in the function and begin executing the code there. When it reaches the end of the function, the execution returns to the line that called the function and continues moving through the code as before.</p>
+<p>A major purpose of functions is to group code that gets executed multiple times. Without a function defined, you would have to copy and paste this code each time, and the program would look like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello!!!&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello there.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello!!!&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello there.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello!!!&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello there.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello!
+Hello!!!
+Hello there.
+Hello!
+Hello!!!
+Hello there.
+Hello!
+Hello!!!
+Hello there.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In general, you always want to avoid duplicating code, because duplicate code is very prone to errors. For example, you find a bug you need to fix you’ll have to remember to change the code everywhere you copied it.</p>
+<p>As you get more programming experience, you’ll often find yourself de-duplicating code, which means getting rid of duplicated or copy-and-pasted code. De-duplication makes your programs shorter, easier to read, and easier to update.</p>
+<div class="section" id="def-statement-with-parameters">
+<h2><code class="docutils literal notranslate"><span class="pre">def</span></code> statement with parameters<a class="headerlink" href="#def-statement-with-parameters" title="Permalink to this headline">¶</a></h2>
+<p>When you call the <code class="docutils literal notranslate"><span class="pre">print()</span></code> or <code class="docutils literal notranslate"><span class="pre">len()</span></code> function, you pass in values, called <strong>arguments</strong> in this context, by typing them between the parentheses. You can also define your own functions that accept arguments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>            
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello &#39;</span><span class="o">+</span> <span class="n">name</span><span class="p">)</span>       
+</pre></div>
+</div>
+</div>
+</div>
+<p>The definition of the <code class="docutils literal notranslate"><span class="pre">hello()</span></code> function in this program has a parameter called <code class="docutils literal notranslate"><span class="pre">name</span></code>. A <strong>parameter</strong> is a variable that an argument is stored in when a function is called.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">)</span>
+<span class="n">hello</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello Alice
+Hello Bob
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first time the <code class="docutils literal notranslate"><span class="pre">hello()</span></code> function is called, it’s with the argument <code class="docutils literal notranslate"><span class="pre">'Alice'</span></code>. The program execution enters the function, and the variable <code class="docutils literal notranslate"><span class="pre">name</span></code> is automatically set to <code class="docutils literal notranslate"><span class="pre">Alice</span></code>, which is what gets printed by the <code class="docutils literal notranslate"><span class="pre">print()</span></code> statement.</p>
+<p>One special thing to note about parameters is that the value stored in a <code class="docutils literal notranslate"><span class="pre">parameter</span></code> is forgotten when the function returns. For example, if you added <code class="docutils literal notranslate"><span class="pre">print(name)</span></code> after <code class="docutils literal notranslate"><span class="pre">hello('Bob')</span></code> in the previous program, the program would give you a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> because there is no variable named <code class="docutils literal notranslate"><span class="pre">name</span></code>. This variable was destroyed after the function call <code class="docutils literal notranslate"><span class="pre">hello('Bob')</span></code> had returned, so <code class="docutils literal notranslate"><span class="pre">print(name)</span></code> would refer to a <code class="docutils literal notranslate"><span class="pre">name</span></code> variable that does not exist.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’re familiar with strongly-typed languages like <code class="docutils literal notranslate"><span class="pre">C</span></code>, you’ll immediately notice that there is no type information associated with the function inputs or outputs.</p>
+</div>
+<p>Python functions can return any Python object, simple or compound, which means constructs that may be difficult in other languages are straightforward in Python.</p>
+<p>For example, you can easily return multiple values by simply separating them with commas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">val_pp</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="o">+</span><span class="mi">1</span> <span class="p">,</span> <span class="n">val</span><span class="o">+</span><span class="mi">2</span>
+
+<span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">val_pp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 4 5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="default-argument-values">
+<h2>Default Argument Values<a class="headerlink" href="#default-argument-values" title="Permalink to this headline">¶</a></h2>
+<p>Often when defining a function, there are certain values that we want the function to use <em>most</em> of the time, but we’d also like to give the user some flexibility.
+In this case, we can use <em>default values</em> for arguments.
+Let’s create a <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> function. What if we would like the user to be able to play with the starting values?
+We could do that as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With a single argument, the result of the function call is identical to before:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 1 2 3 5 8 13 21 34 55 
+</pre></div>
+</div>
+</div>
+</div>
+<p>But now we can use the function to explore new things, such as the effect of new starting values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 2 4 6 10 16 26 42 68 110 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The values can also be specified by name if desired, in which case the order of the named values does not matter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 4 7 11 18 29 47 76 123 199 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="return-statement">
+<h2><code class="docutils literal notranslate"><span class="pre">return</span></code> statement<a class="headerlink" href="#return-statement" title="Permalink to this headline">¶</a></h2>
+<p>When you call the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function and pass it an argument such as <em>‘Hello’</em>, the function call evaluates to the integer value 5, which is the length of the string you passed it. In general, the value that a function call evaluates to is called the <strong>return value of the function</strong>.</p>
+<p>When creating a function using the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement, you can specify what the <code class="docutils literal notranslate"><span class="pre">return</span></code> value should be with a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement. A <code class="docutils literal notranslate"><span class="pre">return</span></code> statement consists of the following:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword</p></li>
+<li><p>The value or expression that the function should <code class="docutils literal notranslate"><span class="pre">return</span></code></p></li>
+</ul>
+<p>When an expression is used with a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement, the <code class="docutils literal notranslate"><span class="pre">return</span></code> value is what this expression evaluates to. For example, the following program defines a function that returns a different string depending on what number it is passed as an argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">getAnswer</span><span class="p">(</span><span class="n">answerNumber</span><span class="p">):</span>            
+    <span class="k">if</span> <span class="n">answerNumber</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>               
+        <span class="k">return</span> <span class="s1">&#39;It is certain&#39;</span>
+    <span class="k">elif</span> <span class="n">answerNumber</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;It is decidedly so&#39;</span>
+    <span class="k">elif</span> <span class="n">answerNumber</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Yes&#39;</span>
+    <span class="k">elif</span> <span class="n">answerNumber</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Reply hazy try again&#39;</span>
+    <span class="k">elif</span> <span class="n">answerNumber</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Ask again later&#39;</span>
+    <span class="k">elif</span> <span class="n">answerNumber</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Concentrate and ask again&#39;</span>
+    <span class="k">elif</span> <span class="n">answerNumber</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;My reply is no&#39;</span>
+    <span class="k">elif</span> <span class="n">answerNumber</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Outlook not so good&#39;</span>
+    <span class="k">elif</span> <span class="n">answerNumber</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Very doubtful&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This program starts, Python first imports the <code class="docutils literal notranslate"><span class="pre">random</span></code> module. Then the <code class="docutils literal notranslate"><span class="pre">getAnswer()</span></code> function is defined with a parameter named <code class="docutils literal notranslate"><span class="pre">answerNumber</span></code>. Because the function is being defined (and not called), the execution skips over the code in it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>             
+<span class="n">fortune</span> <span class="o">=</span> <span class="n">getAnswer</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>               
+<span class="nb">print</span><span class="p">(</span><span class="n">fortune</span><span class="p">)</span>                       
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ask again later
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, the <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> function is called with two arguments, 1 and 9. It evaluates to a random integer between 1 and 9 (including 1 and 9 themselves), and this value is stored in a variable named <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">getAnswer()</span></code> function is called with <code class="docutils literal notranslate"><span class="pre">r</span></code> as the argument. The program execution moves to the top of the <code class="docutils literal notranslate"><span class="pre">getAnswer()</span></code> function, and the value <code class="docutils literal notranslate"><span class="pre">r</span></code> is stored in a parameter named <code class="docutils literal notranslate"><span class="pre">answerNumber</span></code>. Then, depending on this value in <code class="docutils literal notranslate"><span class="pre">answerNumber</span></code>, the function returns one of many possible string values. The program execution returns to the line at the bottom of the program that originally called <code class="docutils literal notranslate"><span class="pre">getAnswer()</span></code>. The returned string is assigned to a variable named <code class="docutils literal notranslate"><span class="pre">fortune</span></code>, which then gets passed to a <code class="docutils literal notranslate"><span class="pre">print()</span></code> call and is printed to the screen.</p>
+<p>Note that since you can pass <code class="docutils literal notranslate"><span class="pre">return</span></code> values as an argument to another function call, you could shorten these three lines:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to this single equivalent line:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getAnswer</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It is decidedly so
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remember, expressions are composed of values and operators. A function call can be used in an expression because it evaluates to its <code class="docutils literal notranslate"><span class="pre">return</span></code> value.</p>
+</div>
+<div class="section" id="none-value">
+<h2><code class="docutils literal notranslate"><span class="pre">None</span></code> value<a class="headerlink" href="#none-value" title="Permalink to this headline">¶</a></h2>
+<p>In Python there is a value called <code class="docutils literal notranslate"><span class="pre">None</span></code>, which represents the <em>absence of a value</em>. <code class="docutils literal notranslate"><span class="pre">None</span></code> is the only value of the <em>NoneType data type</em>. (Other programming languages might call this value null, nil, or undefined.) Just like the Boolean <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> values, <code class="docutils literal notranslate"><span class="pre">None</span></code> must be typed with a capital <strong>N</strong>.</p>
+<p>This value-without-a-value can be helpful when you need to store something that won’t be confused for a real value in a variable. One place where <code class="docutils literal notranslate"><span class="pre">None</span></code> is used is as the return value of <code class="docutils literal notranslate"><span class="pre">print()</span></code>. The <code class="docutils literal notranslate"><span class="pre">print()</span></code> function displays text on the screen, but it doesn’t need to return anything in the same way <code class="docutils literal notranslate"><span class="pre">len()</span></code> or <code class="docutils literal notranslate"><span class="pre">input()</span></code> does. But since all function calls need to evaluate to a <code class="docutils literal notranslate"><span class="pre">return</span></code> value, <code class="docutils literal notranslate"><span class="pre">print()</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code>. To see this in action, enter the following into your Jupyter Notebook:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span> <span class="o">==</span> <span class="n">var</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="jupyter-tricks">
+<h2>Jupyter Tricks<a class="headerlink" href="#jupyter-tricks" title="Permalink to this headline">¶</a></h2>
+<p>Here are some jupyter notebook tricks while working with functions:</p>
+<ul class="simple">
+<li><p><kbd>Shift</kbd>+<kbd>Tab</kbd> (press once): See which parameters can be passed to a function.</p></li>
+<li><p><kbd>Shift</kbd>+<kbd>Tab</kbd> (press three times): Get additional information about the function.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above two shortcuts only works when your cursor is between the function parentheses.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">?function-name</span></code> (Press <kbd>Shift</kbd> +<kbd>Enter</kbd>): Shows the definition and docstring for that function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">??function-name</span></code> (Press <kbd>Shift</kbd> +<kbd>Enter</kbd>): Shows the source code for that function</p></li>
+</ul>
+<p>You can use these tricks with both, built-in functions &amp; user defined functions.</p>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="questionaire">
+<h3>Questionaire<a class="headerlink" href="#questionaire" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Can we define a function without <code class="docutils literal notranslate"><span class="pre">return</span></code> statement?</p></li>
+<li><p>How many arguments can we use in a single user defined function?</p></li>
+<li><p>Is it possible to change default argument’s value in functions?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">print()</span></code> returns?</p></li>
+<li><p>Write a function which will take a number as an argument and return its square.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./course_material"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="04_loops.html" title="previous page">Loops</a>
+    <a class='right-next' id="next-link" href="06_lists.html" title="next page">List</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By aiadventures<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
